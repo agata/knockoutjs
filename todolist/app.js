@@ -1,14 +1,14 @@
 var viewModel = {};
 viewModel.todos = ko.observableArray([
-    {text: 'Todo 1', done: false},
-    {text: 'Todo 2', done: false},
-    {text: 'Todo 3', done: true}
+    {text: 'Todo 1', done: ko.observable(false)},
+    {text: 'Todo 2', done: ko.observable(false)},
+    {text: 'Todo 3', done: ko.observable(true)}
 ]);
 
 viewModel.addAction = function() {
     var todo = {
         text: document.getElementById("input").value,
-        done: false
+        done: ko.observable(false)
     };
     viewModel.todos.push(todo);
     document.getElementById("input").value = "";
@@ -16,7 +16,7 @@ viewModel.addAction = function() {
 
 viewModel.toggleAction = function(a) {
     console.log(a);
-    a.done = a.done == false;
+    a.done(a.done() == false);
     console.log(a);
 };
 
