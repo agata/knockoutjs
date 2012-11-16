@@ -4,7 +4,7 @@
   <body>
     <div>
       <ul data-bind="foreach: todos">
-        <li data-bind="text: text, click: $parent.toggleAction, style: {'text-decoration': done ? 'line-through' : 'none'}">Todo 1</li>
+        <li data-bind="text: text, click: $parent.toggleAction, style: {textDecoration: done() ? 'line-through' : 'none'}">Todo 1</li>
       </ul>
     </div>
     <div>
